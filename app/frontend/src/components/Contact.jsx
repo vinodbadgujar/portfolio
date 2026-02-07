@@ -42,22 +42,37 @@ const Contact = () => {
     });
   };
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
-    setFormStatus({ type: 'loading', message: 'Sending message...' });
+    
+    // Validate form data
+    if (!formData.name || !formData.email || !formData.subject || !formData.message) {
+      setFormStatus({ type: 'error', message: 'Please fill in all fields.' });
+      return;
+    }
 
-    // Simulate form submission - will be connected to backend later
+    // Create mailto body with user details
+    const mailtoBody = `Name: ${formData.name}\nEmail: ${formData.email}\n\nMessage:\n${formData.message}`;
+    
+    // Create mailto link
+    const mailtoLink = `mailto:vbadgujar1999@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent(mailtoBody)}`;
+    
+    // Open user's default email client
+    window.location.href = mailtoLink;
+    
+    // Show success message
+    setFormStatus({ 
+      type: 'success', 
+      message: 'Opening your email client... Please complete and send the email.' 
+    });
+    
+    // Clear form
+    setFormData({ name: '', email: '', subject: '', message: '' });
+    
+    // Clear status after 5 seconds
     setTimeout(() => {
-      setFormStatus({ 
-        type: 'success', 
-        message: 'Thank you for your message! I\'ll get back to you soon.' 
-      });
-      setFormData({ name: '', email: '', subject: '', message: '' });
-      
-      setTimeout(() => {
-        setFormStatus({ type: '', message: '' });
-      }, 5000);
-    }, 1000);
+      setFormStatus({ type: '', message: '' });
+    }, 5000);
   };
 
   const contactInfo = [
@@ -169,9 +184,9 @@ const Contact = () => {
               </div>
             )}
 
-            <button type="submit" className="submit-button" disabled={formStatus.type === 'loading'}>
+            <button type="submit" className="submit-button">
               <Send size={18} />
-              {formStatus.type === 'loading' ? 'Sending...' : 'Send Message'}
+              Get In Touch
             </button>
           </form>
         </div>
