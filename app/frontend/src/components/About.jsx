@@ -63,18 +63,11 @@ const About = () => {
           <div className="about-text">
             <p className="about-paragraph">
               I'm a <strong>Cloud DevOps Engineer</strong> with 4.5+ years of experience, currently working as a 
-              DevOps Consultant at <strong>Deloitte</strong>. Previously, I spent 4 years at <strong>Accenture</strong> 
-              as a Senior Cloud DevOps Engineer.
-            </p>
+              DevOps Consultant at <strong>Deloitte</strong>. Previously, I spent 4 years at <strong>Accenture</strong> as a Senior Cloud DevOps Engineer.</p>
             <p className="about-paragraph">
               My expertise lies in architecting and managing cloud infrastructure across <strong>GCP and Azure</strong>, 
-              designing end-to-end <strong>CI/CD pipelines</strong>, and orchestrating containerized applications using 
-              <strong>Kubernetes and OpenShift</strong>. I'm passionate about automation, infrastructure as code, 
+              designing end-to-end <strong>CI/CD pipelines</strong>, and orchestrating containerized applications using <strong>Kubernetes and OpenShift</strong>. I'm passionate about automation, infrastructure as code, 
               and building scalable, reliable systems.
-            </p>
-            <p className="about-paragraph">
-              I hold multiple <strong>Google Cloud certifications</strong> including Professional Cloud Architect 
-              and Professional Cloud DevOps Engineer, demonstrating my deep expertise in cloud technologies.
             </p>
           </div>
 
